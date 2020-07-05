@@ -1,0 +1,43 @@
+---
+title: "Code Book"
+output: html_notebook
+---
+
+I have downloaded the data from "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip". Details of the dataset can be found in the "READ_ME.Rmd" in the Github repository. 
+
+You can also find more information from "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" and within the file, which has a "README.txt" and a "features_info.txt"
+
+In this folder the data has a "features.txt", which is a list of 561 variable names and an "activity_labels.txt", which numbers six activities from 1 to 6, with the activity e.g. 1 Walking, 2 Walking Upstairs, etc. Also in this folder, there are two folders named "train" and "test". These both contain a subject folder ("subject_train.txt" in the train folder and "subject_test.txt" in the test folder), an X file and a Y file (both labeled as "X_train.txt", "Y_train.txt", "X_test.txt", "Y_test.txt"). It states in the "README.txt" that the data is separated into the two different folders ("train" and "test") and that 70% of the data is in the "train" folder and the other 30% is in the "test" folder. There are other folders and data in this file, but we will not use the rest.
+
+As stated in the "READ_ME.Rmd" I will plan to tidy this data and put it into one dataset.
+
+First I used the read.delim() command to read "x_test.txt" as "xtest", "y_test.txt" as "ytest", "subject_test.txt" as "subjecttest", "x_train.txt" as "xtrain", "y_train.txt" as "ytrain" and "subject_train.txt" and set the header to false.
+
+The "ytrain" and "ytest" are both singular column data frames with integer values running between 1 to 6. ytrain has 7352 rows while ytest has 2947 rows. These are the values that match with the "activity_label.txt". I combined the two data frames by rows and placed the training data set above the test data set using the rbind() function and named it "tasks". This had 10299 rows and 1 column. I then matched the integer values and replaced them with the task they were assigned to. So, 1 = "WALKING", 2 ="WALKING_UPSTAIRS", 3 ="WALKING_DOWNSTAIRS", 4 = "SITTING",5 = "STANDING", 6 = "LAYING". I did this using the mapvalues() function. This converted the dataframe to a vector, so I reassigned it back to a data frame.
+
+I then worked on the "subjecttrain" "subjecttest" data. They are both singular column data frames with integer values, with subjecttrain has 7352 rows while subjecttest has 2947 rows. "Subjecttrain" has 21 unique values between 1 and 30, while "subjecttest" has 9 unique values between 2 and 24. These represent the 30 subjects aged between 18 and 48 years old, who took part in the experiment. I combined the rows using rbind() so the training values were above the test values, to match the "tasks" values, which will be combined later. I used the rename function to change the column header to subjects.
+
+I uploaded the "features.txt" which lists the column headers for the "xtest" and "xtrain" datasets.I read it into R using the read.delim() and set headers to false as the variables data. This read a data frame with 1 column and 561 rows. These names need to be tidied.
+
+Each name has a number in front for the observation number, which does not add anything to the data. I therefore split the string using the strsplit() function, which is separated by a space. I then take the second element of the string and put it into a function and use the sapply function as below.
+
+secondElement <- function(x){x[2]}
+variables <- sapply(splitNames,secondElement)
+
+This removes the number and returns the second element then we return it back to a data frame.
+
+I then renamed the varaible names by using the sub() and gsub() functions.
+
+It states that the "t" at the start of the variable name represents time so I changed this to "Time". I changed "f" at the start of the observation name to "Frequency". I changed "Acc" stands for the "Accelemeter" which captures the 3- axial linear acceleration at a constant rate of 50Hz. "Magnatude" replaced "mag", "Gyroscope" replaced "gyro" which captures 3-axial angular velocity at a constant rate of 50Hz.I replaced "tBody" with "TimeBody","bodybody" with "Body". I changed capital letters to make it easier to read for "Jerk", "Gravity", "Mean" and "Std" (standard deviation). Lastly I removed the punctuation - and () from the dataset.
+
+I was now ready to work with the "xtrain" and "xtest" data sets which has 2947 rows and 561 columns and 7352 rows and 561 columns. I combined the rows and labeled it totalresults using the rbind(), with xtrain above xtest. I then set the column headers to the variables$variables character vector.
+
+Now I only want the columns that record the mean and standard deviation. I therefore use the grep() function to select the column names that contains the name "mean", "Mean", "Std" or "std".
+This leads to a data base containing 10299 rows and 86 columns.
+
+I then column bind the all_subject, tasks and totalresults datasets and named it humanactivityrecognition. This leads to a data frame with 10299 rows and 88 columns
+
+I then created the averagehumanactivityrecognition by using the dplyr package. This used the humanactivityrecognition data set and group by subject first and then by tasks.  I then used the summarise_all function by listing the means for the variables. I then used the arrange() function to order the columns by tasks then subject. This leaves me with a tidy data set of the means for each each indivual for each task and gives a data set containing 180 rows and 88 columns.
+
+
+
