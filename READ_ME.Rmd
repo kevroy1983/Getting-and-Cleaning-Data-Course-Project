@@ -1,0 +1,13 @@
+Kevin Roy
+Getting and Cleaning Data Course Project
+05/07/2020
+
+The purpose of this project is to collect data from "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" and put it into a tidy data set.
+
+This data contains 30 subjects between 18 years old and 48 years old, who are part of a experiment. They require to perform six activities (walking, walking upstairs, walking downstairs, standing sitting and lying) while wearing a smartphone. They used the built in Accelerometer and Gyrometer to record the sensory signals (time, acceleration, angular velocity, etc). 
+
+This data set was called "Human Activity Recognition Using Smartphones Dataset" and was created by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto at the University of Genoa.
+
+My objective is to merge the test and train datasets together, which were originally split, to create a full data set, extract only the measurements on the mean and standard deviation for each measurement, use descriptive activity names to name the activities in the data set and appropriately label the data set with descriptive variable names. From this data set, I will create another data set, that will provide the average for each subject  and each activity.
+
+A code book is provided to expain how I did this, and a "run_analysis.R" document so that you can run this yourself.
