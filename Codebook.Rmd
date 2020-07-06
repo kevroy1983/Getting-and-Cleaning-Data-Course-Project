@@ -60,7 +60,7 @@ The magnetude were three dimensional signals calculated using Euclidean Norm
 [41] "TimeBodyGyroscopeJerkMagnitudeMean"             
 [42] "TimeBodyGyroscopeJerkMagnitudeStd"              
 
-Fast Fourier Transform (FFT) was applied to these frequency means and standad deviations at frequency of 0.3 Hz
+Fast Fourier Transform (FFT) was applied to these frequency means and standard deviations at frequency of 0.3 Hz
 [43] "FrequencyBodyAccelerometerMeanX"                
 [44] "FrequencyBodyAccelerometerMeanY"                
 [45] "FrequencyBodyAccelerometerMeanZ"                
@@ -101,6 +101,7 @@ Fast Fourier Transform (FFT) was applied to these frequency means and standad de
 [80] "FrequencyBodyGyroscopeJerkMagnitudeStd"         
 [81] "FrequencyBodyGyroscopeJerkMagnitudeMeanFreq"    
 
+Angular time the body accelerates and angular velocity 
 [82] "angletBodyAccelerometerMeanGravity"             
 [83] "angletBodyAccelerometerJerkMeanGravityMean"     
 [84] "angletBodyGyroscopeMeanGravityMean"             
