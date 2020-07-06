@@ -3,6 +3,113 @@ title: "Code Book"
 output: html_notebook
 ---
 
+Variable list
+
+ [1] "subject" - integer vector between 1:30 which carachterises the 30 individuals between 18 and 48 who took part in the study                                     
+ [2] "tasks"  - character vector that has 6 unique values and describe the task being recorded, WALKING, WALKING_UPSTAIRS,WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+   
+ time body acceleration mean and standard deviation in X, Y and Z axis direction at a constant rate of 50 Hz.                                   
+ [3] "TimeBodyAccelerometerMeanX" - 
+ [4] "TimeBodyAccelerometerMeanY"                    
+ [5] "TimeBodyAccelerometerMeanZ"                     
+ [6] "TimeBodyAccelerometerStdX"                      
+ [7] "TimeBodyAccelerometerStdY"                      
+ [8] "TimeBodyAccelerometerStdZ"                      
+ 
+ time gravity acceleration mean and standard deviation in X, Y and Z axis direction at a constant rate of 50 Hz.
+ [9] "TimeGravityAccelerometerMeanX"                  
+[10] "TimeGravityAccelerometerMeanY"                  
+[11] "TimeGravityAccelerometerMeanZ"                  
+[12] "TimeGravityAccelerometerStdX"                   
+[13] "TimeGravityAccelerometerStdY"                   
+[14] "TimeGravityAccelerometerStdZ" 
+
+body linear acceleration and angular velocity were derived in time to obtain Jerk signals at a constant rate of 50hz
+[15] "TimeBodyAccelerometerJerkMeanX"                 
+[16] "TimeBodyAccelerometerJerkMeanY"                 
+[17] "TimeBodyAccelerometerJerkMeanZ"                 
+[18] "TimeBodyAccelerometerJerkStdX"                  
+[19] "TimeBodyAccelerometerJerkStdY"                  
+[20] "TimeBodyAccelerometerJerkStdZ"  
+
+time body angular velocity mean and standard deviation in X, Y and Z axis direction recorded at a constant rate of 50Hz.
+[21] "TimeBodyGyroscopeMeanX"                         
+[22] "TimeBodyGyroscopeMeanY"                         
+[23] "TimeBodyGyroscopeMeanZ"                         
+[24] "TimeBodyGyroscopeStdX"                          
+[25] "TimeBodyGyroscopeStdY"                          
+[26] "TimeBodyGyroscopeStdZ"
+
+body linear acceleration and angular velocity were derived in time to obtain Jerk signals
+[27] "TimeBodyGyroscopeJerkMeanX"                     
+[28] "TimeBodyGyroscopeJerkMeanY"                     
+[29] "TimeBodyGyroscopeJerkMeanZ"                     
+[30] "TimeBodyGyroscopeJerkStdX"                      
+[31] "TimeBodyGyroscopeJerkStdY"                      
+[32] "TimeBodyGyroscopeJerkStdZ"
+
+The magnetude were three dimensional signals calculated using Euclidean Norm
+[33] "TimeBodyAccelerometerMagnitudeMean"             
+[34] "TimeBodyAccelerometerMagnitudeStd"              
+[35] "TimeGravityAccelerometerMagnitudeMean"          
+[36] "TimeGravityAccelerometerMagnitudeStd"           
+[37] "TimeBodyAccelerometerJerkMagnitudeMean"         
+[38] "TimeBodyAccelerometerJerkMagnitudeStd"          
+[39] "TimeBodyGyroscopeMagnitudeMean"                 
+[40] "TimeBodyGyroscopeMagnitudeStd"                  
+[41] "TimeBodyGyroscopeJerkMagnitudeMean"             
+[42] "TimeBodyGyroscopeJerkMagnitudeStd"              
+
+Fast Fourier Transform (FFT) was applied to these frequency means and standad deviations at frequency of 0.3 Hz
+[43] "FrequencyBodyAccelerometerMeanX"                
+[44] "FrequencyBodyAccelerometerMeanY"                
+[45] "FrequencyBodyAccelerometerMeanZ"                
+[46] "FrequencyBodyAccelerometerStdX"                 
+[47] "FrequencyBodyAccelerometerStdY"                 
+[48] "FrequencyBodyAccelerometerStdZ"                 
+[49] "FrequencyBodyAccelerometerMeanFreqX"            
+[50] "FrequencyBodyAccelerometerMeanFreqY"            
+[51] "FrequencyBodyAccelerometerMeanFreqZ"            
+[52] "FrequencyBodyAccelerometerJerkMeanX"            
+[53] "FrequencyBodyAccelerometerJerkMeanY"            
+[54] "FrequencyBodyAccelerometerJerkMeanZ"            
+[55] "FrequencyBodyAccelerometerJerkStdX"             
+[56] "FrequencyBodyAccelerometerJerkStdY"             
+[57] "FrequencyBodyAccelerometerJerkStdZ"             
+[58] "FrequencyBodyAccelerometerJerkMeanFreqX"        
+[59] "FrequencyBodyAccelerometerJerkMeanFreqY"        
+[60] "FrequencyBodyAccelerometerJerkMeanFreqZ"        
+[61] "FrequencyBodyGyroscopeMeanX"                    
+[62] "FrequencyBodyGyroscopeMeanY"                    
+[63] "FrequencyBodyGyroscopeMeanZ"                    
+[64] "FrequencyBodyGyroscopeStdX"                     
+[65] "FrequencyBodyGyroscopeStdY"                     
+[66] "FrequencyBodyGyroscopeStdZ"                     
+[67] "FrequencyBodyGyroscopeMeanFreqX"                
+[68] "FrequencyBodyGyroscopeMeanFreqY"                
+[69] "FrequencyBodyGyroscopeMeanFreqZ"                
+[70] "FrequencyBodyAccelerometerMagnitudeMean"        
+[71] "FrequencyBodyAccelerometerMagnitudeStd"         
+[72] "FrequencyBodyAccelerometerMagnitudeMeanFreq"    
+[73] "FrequencyBodyAccelerometerJerkMagnitudeMean"    
+[74] "FrequencyBodyAccelerometerJerkMagnitudeStd"     
+[75] "FrequencyBodyAccelerometerJerkMagnitudeMeanFreq"
+[76] "FrequencyBodyGyroscopeMagnitudeMean"            
+[77] "FrequencyBodyGyroscopeMagnitudeStd"             
+[78] "FrequencyBodyGyroscopeMagnitudeMeanFreq"        
+[79] "FrequencyBodyGyroscopeJerkMagnitudeMean"        
+[80] "FrequencyBodyGyroscopeJerkMagnitudeStd"         
+[81] "FrequencyBodyGyroscopeJerkMagnitudeMeanFreq"    
+
+[82] "angletBodyAccelerometerMeanGravity"             
+[83] "angletBodyAccelerometerJerkMeanGravityMean"     
+[84] "angletBodyGyroscopeMeanGravityMean"             
+[85] "angletBodyGyroscopeJerkMeanGravityMean"         
+[86] "angleXGravityMean"                              
+[87] "angleYGravityMean"                              
+[88] "angleZGravityMean"                               
+
+
 I have downloaded the data from "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip". Details of the dataset can be found in the "READ_ME.Rmd" in the Github repository. 
 
 You can also find more information from "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" and within the file, which has a "README.txt" and a "features_info.txt"
